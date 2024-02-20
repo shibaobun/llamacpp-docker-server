@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  llamacpp:
+    image: shibaobun/llamacpp-docker-server
+    container_name: llamacpp
+    restart: always
+    expose:
+      - "8200"
+    volumes:
+      - ./models:/models
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+    command: "-m /models/llama-13b.ggmlv3.q2_K.bin --n-gpu-layers 100000"

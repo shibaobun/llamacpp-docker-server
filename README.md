@@ -1,15 +1,16 @@
 # Containeralized Server of `llama.cpp`
 Containerized server for **@ggerganov's** [`llama.cpp`](https://github.com/ggerganov/llama.cpp) library with [CUDA](https://developer.nvidia.com/about-cuda) support.
-`scripts/LlamacppLLM.py` is a langchain integration. 
+`scripts/LlamacppLLM.py` is a langchain integration.
 
 ## Why not binding?
 `llama.cpp` developement moves extremely fast and binding projects just don't keep up with the updates.
 That means you can’t have the most optimized models.
 
 ## Usage
+View [`docker-compose.yml`](https://github.com/shibaobun/llamacpp-docker-server/blob/nvidia/docker-compose.yml) or run the following command:
+
 ```
-docker build -t llamacpp-server .
-docker run -p 8200:8200 -v /path/to/models:/models llamacpp-server -m /models/llama-13b.ggmlv3.q2_K.bin
+docker run -p 8200:8200 -v /path/to/models:/models --gpus all shibaobun/llamacpp-docker-server -m /models/llama-13b.ggmlv3.q2_K.bin
 ```
 
 Example for downloading a model
