@@ -1,5 +1,5 @@
 # Containeralized Server of `llama.cpp`
-Containerized server for **@ggerganov's** [`llama.cpp`](https://github.com/ggerganov/llama.cpp) library.
+Containerized server for **@ggerganov's** [`llama.cpp`](https://github.com/ggerganov/llama.cpp) library with [CUDA](https://developer.nvidia.com/about-cuda) support.
 `scripts/LlamacppLLM.py` is a langchain integration. 
 
 ## Why not binding?
